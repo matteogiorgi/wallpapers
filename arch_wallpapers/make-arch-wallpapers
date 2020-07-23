@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+rm arch_pic_*
+list=$(ls ../pic_*)
+for file in $list; do
+    wallpaper-maker "$file" "arch-logo.png"
+done

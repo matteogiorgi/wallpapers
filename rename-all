@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Just a little script to keep my wallpapers organized
+
+list=$(ls)
+for file in $list; do
+    if [[ $file == "rename-all" || $file == "pics.png" || $file == "README.md" || $file == "arch_wallpapers" ]]; then
+		continue
+	fi
+    mv "$file" "_""$file";
+done
+
+list=$(ls)
+i=0
+for file in $list; do
+    if [[ $file == "rename-all" || $file == "pics.png" || $file == "README.md" || $file == "arch_wallpapers" ]]; then
+		continue
+	fi
+    suffix=${file##*.}
+    if [[ $i -lt 10  ]]; then
+        mv "$file" "pic_0"$i."$suffix";
+    else
+        mv "$file" "pic_"$i."$suffix";
+    fi
+    ((i++))
+done

@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+rm logo_pic_*
+list=$(ls ../pic_*)
+for file in $list; do
+    wallogo "$file" "mint-logo.png"
+done

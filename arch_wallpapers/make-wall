@@ -3,5 +3,5 @@
 rm arch_pic_*
 list=$(ls ../pic_*)
 for file in $list; do
-    wallpaper-maker "$file" "arch-logo.png"
+    wallogo "$file" "arch-logo.png"
 done

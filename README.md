@@ -3,6 +3,8 @@
 This is a small collection of cool wallpapers, mainly nature and landscapes
 pics. I do no own any copyright, just found them here and there surfing around.
 
+![](pics.png)
+
 
 
 
@@ -51,8 +53,3 @@ The `vid-rename` script inside `./videos` has the same purpose `./pic-rename`
 has, with a plus: it convert any gif inside the direcory in an mp4 before rename
 it appropriately. This is becouse on the web is much easier to find gifs than
 small videos.
-
-
-
-
-![](pics.png)

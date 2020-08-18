@@ -39,7 +39,7 @@ specified (have a look inside `./logos`, there are some samples).
 ## Video-wallpapers
 
 Inside the `./videos` directory there are a bunch of small videos usable as
-wallpaper with the help of [this script](https://github.com/geoteo1/.dotfiles/blob/master/bin/bin/wallset). I've mapped the command inside my rc.conf
+wallpaper with the help of [this script](https://github.com/matteogiorgi/.dotfiles/blob/master/bin/bin/wallset). I've mapped the command inside my rc.conf
 to speed things up together with the one to arrest the video-wallpaper.
 
 ```

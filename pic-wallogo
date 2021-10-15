@@ -2,7 +2,7 @@
 
 if [ -d wallogo ]; then rm -Rf wallogo; fi
 mkdir wallogo && cd wallogo
-list=$(ls ../pic_*)
+list=$(ls ../pics/pic_*)
 for file in $list; do
     wallogo "$file" "../$1"
 done

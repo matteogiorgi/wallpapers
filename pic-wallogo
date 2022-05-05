@@ -1,8 +1,55 @@
 #! /usr/bin/env bash
 
-if [ -d wallogo ]; then rm -Rf wallogo; fi
-mkdir wallogo && cd wallogo
-list=$(ls ../pics/pic_*)
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+printf "${RED}%s${NC}\n" "Choose a logo"
+
+
+count=1
+list="logos/*"
+max=$(($(/usr/bin/ls logos | wc -w)+1))
+
+
+for file in $list
+do
+    echo "$count $file"
+    ((count++))
+done
+printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+
+
+while read response; do
+    re='^[0-9]+$'
+    [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$max" ]] && break
+    printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+done
+
+
+logo=$(/usr/bin/ls logos | head -n $response | tail -n 1)
+name=${logo%%.*}
+
+
+printf "${RED}%s${NC} " "Are you sure you want to create a new wallogo directory? (Y/n)"
+while read response; do
+    case $response in
+        "y" | "Y" | "yes" | "Yes")
+            echo "..."
+            break
+            ;;
+        *)
+            printf "${YLW}%s${NC}\n" "Ok, never mind."
+            exit 0
+            ;;
+    esac
+done
+
+
+[[ -d wallogo-$name ]] && rm -Rf wallogo-$name
+mkdir wallogo-$name && cd wallogo-$name
+list=$(/usr/bin/ls ../pics/pic_*)
 for file in $list; do
-    ../wallogo-generator "$file" "../$1"
+    ../pic-generator "$file" "../logos/$logo" 2>/dev/null
 done

@@ -1,0 +1,31 @@
+WALLPAPERS="$HOME/Pictures/wallpapers"
+
+function pic-random () {
+    cd $WALLPAPERS
+    for walldir in wallogo*; do
+        rand=$((1+$RANDOM%10))
+        if [[ -z $pic || $rand -gt 5 ]]; then
+            pic=$walldir/$(/usr/bin/ls -l $walldir | awk '{if (NR!=1) print $9}' | sort -R | tail -1)
+            echo $pic
+            echo $rand
+        fi
+    done
+
+    feh --bg-fill $pic
+    unset walldir
+    unset list
+    unset pic
+    cd - 1>/dev/null
+}
+
+function pic-rename () {
+    cd $WALLPAPERS
+    ./pic-rename
+    cd - 1>/dev/null
+}
+
+function pic-wallogo () {
+    cd $WALLPAPERS
+    ./pic-wallogo
+    cd - 1>/dev/null
+}

@@ -3,12 +3,12 @@
 # Just a little script to keep my wallpapers organized
 
 cd pics
-list=$(ls)
+list=$(/usr/bin/ls)
 for file in $list; do
     mv "$file" "_""$file";
 done
 
-list=$(ls)
+list=$(/usr/bin/ls)
 i=0
 for file in $list; do
     suffix=${file##*.}
